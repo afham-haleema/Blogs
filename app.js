@@ -123,7 +123,7 @@ app.delete('/blogs/:id', (req, res) => {
 
 app.get('/about',(req,res)=>{
     res.render('about',{title:'About Us'});
-})
+})cd..
 
 app.use((req,res)=>{
     res.status(404).render('404',{title:'404'});
@@ -131,31 +131,3 @@ app.use((req,res)=>{
 )
 
 
-//************************************** */
-// app.get('/add-blog',(req,res)=>{
-//     const blog = new Blog({
-//         title:"my second blog",
-//         snippet:"bla bla bla",
-//         body:"more stuffs about my blog"
-//     });
-//     blog.save().then((result)=>{
-//         res.send(result);
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-// })
-
-// app.get('/all-blog',(req,res)=>{
-//     Blog.find().then((result)=>{
-//         res.send(result);
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-// })
-// app.get('/one-blog',(req,res)=>{
-//     Blog.findById('6633fa8faf4926fe0f524b30').then((result)=>{
-//         res.send(result);
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-// })
