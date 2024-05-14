@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="details content">
+        <h2><%= blogs.title %></h2>
+        <div class="content">
+            <p><%= blogs.body %></p>
+        </div>
+        <a class="delete" data-doc="<%= blogs._id %>"><i class="fa-solid fa-trash"></i></a>
+        <a class="update" data-doc="<%= blogs._id %>"><i class="fa-solid fa-pen"></i></a>
+    </div>
+
+            
+    </div>
+    <%- include('./partials/footer.ejs') %>
+
+
+    <script>
+        const trashcan=document.querySelector('a.delete');
+        trashcan.addEventListener('click',(e)=>{
+            const endpoint=`/blogs/${trashcan.dataset.doc}`;
+            fetch(endpoint,{
+                method:'DELETE'
+            }).then((response)=>response.json())
+            .then((data)=>{
+                console.log('data from server',data);
+                window.location.href=data.redirect})
+            .catch((err)=>{
+                console.log(err);
+            })
+        })
+
+        const pen=document.querySelector('a.update');
+        
+            pen.addEventListener('click',(e)=>{
+            const endpoint=`/blogs/${pen.dataset.doc}/edit`;
+            fetch(endpoint,{
+                method:'PUT'
+            })
+            .then(()=>{
+                window.location.href=endpoint;
+            }).catch((err)=>{
+                console.log(err)
+            })
+        })
+        
+        
+    </script>
+</body>
+</html>
+
