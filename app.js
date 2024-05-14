@@ -6,7 +6,7 @@ const app=express();
 const methodOverride=require('method-override');
 const Blog=require('./models/blog.js');
 
-const dbURI = `mongodb+srv://afham:afham1234@nodetuts.opiyiwf.mongodb.net/blogs-data`;
+const dbURI = `mongodb+srv://<username>:<password>@nodetuts.opiyiwf.mongodb.net/`;
 mongoose.connect(dbURI).then(()=>{
     app.listen(3000,()=>{
         console.log('listening');
